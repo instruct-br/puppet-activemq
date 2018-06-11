@@ -49,30 +49,6 @@ class activemq::install {
     target => "${activemq::home}/data",
   }
 
-  file { '/opt/activemq/bin/start':
-    ensure  => file,
-    mode    => '0755', 
-    owner   => $activemq::user,
-    group   => $activemq::group,
-    content => epp('activemq/activemq.start.epp'),
-  }
-
-  file { '/opt/activemq/bin/stop':
-    ensure => file,
-    mode    => '0755', 
-    owner => $activemq::user,
-    group => $activemq::group,
-    content => epp('activemq/activemq.stop.epp'),
-  }
-
-  file { '/opt/activemq/bin/restart':
-    ensure => file,
-    mode    => '0755',
-    owner => $activemq::user,
-    group => $activemq::group,
-    content => epp('activemq/activemq.restart.epp'),
-  }
-
   file { "$activemq::system_config_path/activemq":
     ensure  => file,
     owner   => $activemq::user,
