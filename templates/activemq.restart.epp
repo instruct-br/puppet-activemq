@@ -1,2 +1,0 @@
-#!/bin/bash
-/opt/activemq/bin/activemq restart >/dev/null 2>&1
