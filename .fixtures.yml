@@ -1,0 +1,6 @@
+fixtures:
+  repositories:
+    "archive": "https://github.com/voxpupuli/puppet-archive"
+    "systemd": "https://github.com/camptocamp/puppet-systemd"
+  symlinks:
+    "activemq": "#{source_dir}"
