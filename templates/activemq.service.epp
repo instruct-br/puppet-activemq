@@ -8,9 +8,9 @@ After=basic.target network.target
 EnvironmentFile=-<%= $spath %>/activemq
 Type=forking
 PIDFile="<%= $home %>/data/activemq.pid"
-ExecStart="<%= $home %>/bin/start"
-ExecStop="<%= $home %>/bin/stop"
-ExecReload="<%= $home %>/bin/restart"
+ExecStart=/opt/activemq/bin/activemq start
+ExecReload=/opt/activemq/bin/activemq reload
+ExecStop=/opt/activemq/bin/activemq kill
 User=<%= $user %>
 Group=<%= $group %>
 
