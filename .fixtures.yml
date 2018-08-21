@@ -1,6 +1,7 @@
 fixtures:
   repositories:
     "archive": "https://github.com/voxpupuli/puppet-archive"
+    "java_ks": "https://github.com/puppetlabs/puppetlabs-java_ks"
     "systemd": "https://github.com/camptocamp/puppet-systemd"
   symlinks:
     "activemq": "#{source_dir}"
