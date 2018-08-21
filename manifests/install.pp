@@ -1,11 +1,10 @@
 # Class activemq::install
-
 class activemq::install {
 
   group { $activemq::group:
-    ensure  => present,
-    system  => true,
-    before  => User[$activemq::user],
+    ensure => present,
+    system => true,
+    before => User[$activemq::user],
   }
 
   user { $activemq::user:
@@ -39,24 +38,24 @@ class activemq::install {
     target => "/opt/apache-activemq-${activemq::version}",
   }
 
-  file { '/etc/activemq':
-    ensure  => link,
+  file { $activemq::config_path:
+    ensure => link,
     target => "${activemq::home}/conf",
   }
 
   file { '/var/log/activemq':
-    ensure  => link,
+    ensure => link,
     target => "${activemq::home}/data",
   }
 
-  file { "$activemq::system_config_path/activemq":
+  file { "${activemq::system_config_path}/activemq":
     ensure  => file,
     owner   => $activemq::user,
     group   => $activemq::group,
     content => epp('activemq/activemq.sysconfig.epp',{
       memory  => $activemq::memory,
     }),
-    notify => Service['activemq'],
+    notify  => Service['activemq'],
   }
 
   include ::systemd::systemctl::daemon_reload
@@ -71,7 +70,7 @@ class activemq::install {
       spath => $activemq::system_config_path,
       home  => "/opt/apache-activemq-${activemq::version}",
     }),
-    notify => [ 
+    notify  => [
       Class['systemd::systemctl::daemon_reload'],
       Service['activemq'],
     ],

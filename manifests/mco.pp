@@ -1,8 +1,7 @@
 # Class activemq::mco
-
 class activemq::mco {
 
-  file { '/etc/activemq/ssl':
+  file { "${activemq::config_path}/ssl":
     ensure => directory,
     mode   => '0644',
     owner  => $activemq::user,
@@ -12,7 +11,7 @@ class activemq::mco {
   java_ks { 'puppet_ca_truststore':
     ensure       => latest,
     certificate  => '/etc/puppetlabs/puppet/ssl/certs/ca.pem',
-    target       => '/etc/activemq/ssl/truststore.ts',
+    target       => "${activemq::config_path}/ssl/truststore.ts",
     password     => $activemq::truststore_password,
     trustcacerts => true,
   }
@@ -21,15 +20,16 @@ class activemq::mco {
     ensure      => latest,
     certificate => "/etc/puppetlabs/puppet/ssl/certs/${::trusted['certname']}.pem",
     private_key => "/etc/puppetlabs/puppet/ssl/private_keys/${::trusted['certname']}.pem",
-    target      => '/etc/activemq/ssl/keystore.ks',
+    target      => "${activemq::config_path}/ssl/keystore.ks",
     password    => $activemq::keystore_password,
   }
 
-  file { '/etc/activemq/activemq.xml':
+  file { "${activemq::config_path}/activemq.xml":
     ensure  => file,
     owner   => $activemq::user,
     group   => $activemq::group,
     content => epp('activemq/activemq.xml.epp',{
+      config_path         => $activemq::config_path,
       mco_user            => $activemq::mco_user,
       mco_pass            => $activemq::mco_pass,
       keystore_password   => $activemq::keystore_password,

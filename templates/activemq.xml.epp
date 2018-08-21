@@ -23,9 +23,14 @@
         </destinationPolicy>
 
 
-   <sslContext>
-     <sslContext keyStorePassword="<%= $keystore_password %>" keyStore="/etc/activemq/ssl/keystore.ks" trustStorePassword="<%= $truststore_password %>" trustStore="/etc/activemq/ssl/truststore.ts"></sslContext>
-   </sslContext>
+  <sslContext>
+    <sslContext
+      keyStorePassword="<%= $keystore_password %>"
+      keyStore="<%= $config_path %>/ssl/keystore.ks"
+      trustStorePassword="<%= $truststore_password %>"
+      trustStore="<%= $config_path %>/ssl/truststore.ts"
+    />
+  </sslContext>
 
         <managementContext>
             <managementContext createConnector="false"/>
