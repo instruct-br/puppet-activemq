@@ -2,11 +2,14 @@
   "name": "instruct-activemq",
   "version": "0.1.0",
   "author": "gutocarvalho",
-  "summary": "",
+  "summary": "Installs and manage an ActiveMQ Server",
   "license": "Apache-2.0",
-  "source": "",
+  "source": "https://github.com/instruct-br/puppet-activemq.git",
   "dependencies": [
-
+    {
+      "name": "camptocamp/systemd",
+      "version_requirement": "> 1.1.1"
+    }
   ],
   "operatingsystem_support": [
     {
