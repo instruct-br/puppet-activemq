@@ -7,10 +7,10 @@ After=basic.target network.target
 [Service]
 EnvironmentFile=-<%= $spath %>/activemq
 Type=forking
-PIDFile="<%= $home %>/data/activemq.pid"
-ExecStart=/opt/activemq/bin/activemq start
-ExecReload=/opt/activemq/bin/activemq reload
-ExecStop=/opt/activemq/bin/activemq kill
+PIDFile=/var/run/activemq.pid
+ExecStart=<%= $home %>/bin/activemq start
+ExecReload=<%= $home %>/bin/activemq reload
+ExecStop=<%= $home %>/bin/activemq kill
 User=<%= $user %>
 Group=<%= $group %>
 

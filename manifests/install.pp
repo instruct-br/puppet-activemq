@@ -68,7 +68,7 @@ class activemq::install {
       user  => $activemq::user,
       group => $activemq::group,
       spath => $activemq::system_config_path,
-      home  => "/opt/apache-activemq-${activemq::version}",
+      home  => $activemq::home,
     }),
     notify  => [
       Class['systemd::systemctl::daemon_reload'],
