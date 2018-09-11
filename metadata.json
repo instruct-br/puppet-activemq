@@ -1,7 +1,7 @@
 {
   "name": "instruct-activemq",
   "version": "0.1.0",
-  "author": "gutocarvalho",
+  "author": "instruct",
   "summary": "Installs and manage an ActiveMQ Server",
   "license": "Apache-2.0",
   "source": "https://github.com/instruct-br/puppet-activemq.git",
