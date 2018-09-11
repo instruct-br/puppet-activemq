@@ -1,8 +1,8 @@
 # Class activemq
 
 class activemq (
-  $version             = '5.15.2',
-  $checksum            = 'ed2da381eeea5d0d43601f4e97d91bb8',
+  $version             = '5.15.6',
+  $checksum            = 'e79acb9dba66ba7b80e3148ce60f5c72',
   $checksum_type       = 'md5',
   $memory              = '-Xms512m -Xmx512m',
   $home                = '/opt/activemq',
