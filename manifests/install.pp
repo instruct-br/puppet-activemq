@@ -49,7 +49,7 @@ class activemq::install {
     target => "${activemq::home}/data",
   }
 
-  file { "${activemq::system_config_path/activemq}":
+  file { "${activemq::system_config_path}/activemq":
     ensure  => file,
     owner   => $activemq::user,
     group   => $activemq::group,
